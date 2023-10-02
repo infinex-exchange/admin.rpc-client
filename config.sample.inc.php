@@ -1,6 +1,6 @@
 <?php
 
-define('LOG_LEVEL', 3);
+define('LOG_LEVEL', 2);
 
 define('AMQP_HOST', 'localhost');
 define('AMQP_PORT', 5672);
