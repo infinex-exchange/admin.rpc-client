@@ -48,6 +48,7 @@ class Console {
     }
     
     public function stop() {
+        $this -> stdio -> setPrompt('');
         ob_end_flush();
         return Promise\resolve(null);
     }
