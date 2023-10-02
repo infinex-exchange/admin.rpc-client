@@ -48,7 +48,6 @@ class Console {
     }
     
     public function stop() {
-        $this -> stdio -> end();
         return Promise\resolve(null);
     }
     
