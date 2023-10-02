@@ -51,7 +51,6 @@ class Console {
         $module = trim($arrowExp[0]);
         if($module == '')
             throw new \Exception('Syntax error (module)');
-        $this -> log -> debug("Module: $module");
         
         $bracketExp = explode('(', $arrowExp[1], 2);
         if(count($bracketExp) != 2)
@@ -60,17 +59,18 @@ class Console {
         $method = trim($bracketExp[0]);
         if($method == '')
             throw new \Exception('Syntax error (method)');
-        $this -> log -> debug("Method: $method");
         
         $rest = trim($bracketExp[1]);
         if(substr($bracketExp[1], -1) != ')')
             throw new \Exception('Syntax error (brackets)');
         
-        $json = rtrim($bracketExp[1]);
-        $this -> log -> debug($json);
+        $json = rtrim(substr($bracketExp[1], 0 -1));
         $jsonObj = json_decode($json, true);
         if($json != '' && $jsonObj === null)
             throw new \Exception('Syntax error (json)');
+        
+        $this -> log -> debug("Module: $module");
+        $this -> log -> debug("Method: $method");
         $this -> log -> debug('Params: '.json_encode($jsonObj, JSON_UNESCAPED_SLASHES));
         
         $this -> call($module, $method, $jsonObj);
