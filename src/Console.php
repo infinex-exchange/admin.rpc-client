@@ -31,7 +31,7 @@ class Console {
             try {
                 $th -> parse($line);
             } catch(\Exception $e) {
-                $th -> log -> error((string) $e);
+                $th -> log -> error($e -> getMessage());
             }
         });
         
