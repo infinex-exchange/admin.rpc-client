@@ -48,6 +48,7 @@ class Console {
     }
     
     public function stop() {
+        ob_end_flush();
         return Promise\resolve(null);
     }
     
