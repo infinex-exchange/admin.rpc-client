@@ -64,8 +64,7 @@ class Console {
         if(substr($bracketExp[1], -1) != ')')
             throw new \Exception('Syntax error (brackets)');
         
-        $json = rtrim(substr($bracketExp[1], 0 -1));
-        var_dump($json);
+        $json = rtrim(substr($bracketExp[1], 0, -1));
         $jsonObj = json_decode($json, true);
         if($json != '' && $jsonObj === null)
             throw new \Exception('Syntax error (json)');
