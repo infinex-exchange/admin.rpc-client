@@ -37,6 +37,15 @@ class Console {
             }
         });
         
+        ob_start(
+            function ($chunk) use ($th) {
+                $th -> stdio -> write($chunk);
+                // discard data from normal output handling
+                return '';
+            },
+            1
+        );
+        
         return Promise\resolve(null);
     }
     
