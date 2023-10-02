@@ -23,8 +23,6 @@ class Console {
         $this -> stdio = new Clue\React\Stdio\Stdio($this -> loop);
         $this -> stdio -> setPrompt('infinex> ');
         $this -> stdio -> on('data', function($line) use($th) {
-            echo PHP_EOL;
-            
             $line = rtrim($line, "\r\n");
             $all = $th -> stdio -> listHistory();
             if ($line !== '' && $line !== end($all))
