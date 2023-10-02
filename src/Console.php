@@ -67,6 +67,7 @@ class Console {
             throw new \Exception('Syntax error (brackets)');
         
         $json = rtrim($bracketExp[1]);
+        $this -> log -> debug($json);
         $jsonObj = json_decode($json, true);
         if($json != '' && $jsonObj === null)
             throw new \Exception('Syntax error (json)');
